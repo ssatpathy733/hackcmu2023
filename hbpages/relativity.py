@@ -21,7 +21,7 @@ flag = True
 train = pygame.image.load("hbpages/assets/train.png")
 
 
-class relativity:
+class Relativity:
     def __init__(self) -> None:
         pygame.init()
         self.screen = pygame.display.set_mode((width, height))
@@ -30,7 +30,7 @@ class relativity:
         EventHandler()
 
         # draw scrolling background
-        self.bg = pygame.image.load("assets/bg.png").convert()
+        self.bg = pygame.image.load("hbpages/assets/bg.png").convert()
         self.bg_width = self.bg.get_width()
         self.tiles = math.ceil(width / self.bg_width) + 1
         self.scroll = 0
