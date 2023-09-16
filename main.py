@@ -9,14 +9,14 @@ pygame.display.set_caption("name of game!")
 clock = pygame.time.Clock()
 game_state = "main-page"
 
-class SystemStats():
-    def _init_(self, name, distance_km, mass_kg):
+class SystemStats:
+    def __init__(self, name, distance_km, mass_kg):
         self.name = name
         self.distance_km = distance_km
         self.mass_kg = mass_kg
 
-class System():
-    def _init_(self, name, linked_systems, found, system_stats):
+class System:
+    def __init__(self, name, linked_systems, found, system_stats):
         self.name = name
         self.linked_systems = linked_systems
         self.found = found
