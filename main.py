@@ -8,9 +8,6 @@ window = pygame.display.set_mode(window_size)
 pygame.display.set_caption("name of game!")
 clock = pygame.time.Clock()
 game_state = "main-page"
-systems = ["system1", "system2", "system3", "system4", "system5", "earth"]
-
-curr_system = "earth"
 
 class SystemStats():
     def _init_(self, name, distance_km, mass_kg):
@@ -24,6 +21,29 @@ class System():
         self.linked_systems = linked_systems
         self.found = found
         self.system_stats = system_stats
+
+systems_stats_dict = {
+    "Proxima Centauri": SystemStats("Proxima Centauri", 1000, 1000),
+    "Wolf 359": SystemStats("Wolf 359", 1000, 1000),
+    "System 3": SystemStats("System 3", 1000, 1000),
+    "System 4": SystemStats("System 4", 1000, 1000),
+    "System 5": SystemStats("System 5", 1000, 1000),
+    "Earth": SystemStats("Earth", 1000, 1000)
+}
+
+systems_dict = {
+    "Proxima Centauri": System("Proxima Centauri", [], False, systems_stats_dict["Proxima Centauri"]), 
+    "Wolf 359": System("Wolf 359", [], False, systems_stats_dict["Wolf 359"]), 
+    "System 3": System("System 3", [], False, systems_stats_dict["System 3"]), 
+    "System 4": System("System 4", [], False, systems_stats_dict["System 4"]), 
+    "System 5": System("System 5", [], False, systems_stats_dict["System 5"]), 
+    "Earth": System("Earth", [], False, systems_stats_dict["Earth"])
+
+}
+
+curr_system = systems_dict["Earth"]
+
+
 
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
