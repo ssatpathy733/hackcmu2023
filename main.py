@@ -49,7 +49,6 @@ def draw_text(text, font, text_col, x, y):
 
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
-    print("drawing main page!")
     main_menu_button.draw(window);
     spec_rel_button.draw(window);
 
@@ -101,11 +100,9 @@ while exploring:
 
     #actual button press commands!
     if spec_rel_button.isClicked():
-        print("spec rel clicked!")
         game_state = "handbook"
 
     if main_menu_button.isClicked():
-        print("main menu clicked!")
         game_state = "main-page"
 
     #game state screen changes
