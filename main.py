@@ -37,14 +37,14 @@ wolf_img = pygame.image.load('button/wolf_button.png').convert_alpha()
 # make buttons
 cont_button = Button(160, 250, cont_img, 0.1);
 earth_button = Button(160, 250, earth_img, 0.1);
-hb_button = Button(300, 250, hb_img, 0.1);
+hb_button = Button(300, 250, hb_img, 0.3);
 hd_button = Button(160, 250, hd_img, 0.1);
 kep_button = Button(160, 250, kep_img, 0.1);
 launch_button = Button(300, 500, launch_img, 0.3);
-mainmen_button = Button(160, 250, mainmen_img, 0.1);
+mainmen_button = Button(160, 250, mainmen_img, 0.35);
 playag_button = Button(160, 250, playag_img, 0.1);
 proxcent_button = Button(160, 250, proxcent_img, 0.1);
-rel_button = Button(160, 250, rel_img, 0.1);
+rel_button = Button(160, 250, rel_img, 0.35);
 trap_button = Button(160, 250, trap_img, 0.1);
 wolf_button = Button(160, 250, wolf_img, 0.1);
 
@@ -84,8 +84,8 @@ def draw_text(text, font, text_col, x, y):
 def draw_main_page():
     window.fill((52, 78, 91))
 
-    launch_button.draw(window, 300, 600)
-    hb_button.draw(window, 350, 250)
+    launch_button.draw(window, 300, 500)
+    hb_button.draw(window, 300, 250)
 
 def draw_launch_page(system):
     window.fill((52, 78, 91))
@@ -156,16 +156,24 @@ def draw_relativity():
     game_state = "handbook"
     
 def draw_handbook_page():
-    window.fill((52, 78, 91))
+    #window.fill((52, 78, 91))
+    hb_bg_img = pygame.image.load("hbpages/assets/hb_bg.png").convert()
+    window.blit(hb_bg_img, (0, 0))
+    button_x = (window.get_width() / 3) + 175
+    #button_y = (window.get_height() * 3) / 4
+    #button_y might be helpful if we add more buttons to handbook
 
-    mainmen_button.draw(window, 100, 100)
-    rel_button.draw(window, 500, 100)
+    mainmen_button.draw(window, button_x, 200)
+    rel_button.draw(window, button_x, 544)
+
+    '''
     earth_button.draw(window, 200, 200)
     hd_button.draw(window, 400, 200)
     kep_button.draw(window, 600, 200)
     proxcent_button.draw(window, 800, 200)
     trap_button.draw(window, 1000, 200)
     wolf_button.draw(window, 1200, 200)
+    '''
 
 def draw_win_page():
     window.fill((52, 78, 91))
@@ -263,9 +271,6 @@ while exploring:
                 game_state = "choose-speed"
                 prev_system = curr_system
                 curr_system = systems_dict["Wolf 359"]
-
-            
-
 
             if earth_button.isClicked(pygame.mouse.get_pos()) and game_state == "handbook":
                 game_state = "system-stats"
