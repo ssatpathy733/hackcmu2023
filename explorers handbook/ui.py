@@ -107,6 +107,9 @@ class Slider:
     def render(self, app):
         pygame.draw.rect(app.screen, "darkgray", self.container_rect)
         pygame.draw.rect(app.screen, BUTTONSTATES[self.hovered], self.button_rect)
+
+    def change_scrolling_speed(self):
+
     def get_value(self):
         val_range = self.slider_right_pos - self.slider_left_pos - 1
         button_val = self.button_rect.centerx - self.slider_left_pos
@@ -115,6 +118,8 @@ class Slider:
     def display_value(self, app):
         self.text = UI.fonts['m'].render(str(int(self.get_value())), True, "white", None)
         app.screen.blit(self.text, self.label_rect)
+
+
 
 
 
