@@ -33,7 +33,7 @@ class Menu:
 
         self.sliders = [
             # Slider(UI.center, (100,30), 0.5, 0, 100),
-            Slider((UI.center[0], UI.center[1]+175), (300,40), 0.5, 50, 100),
+            Slider((UI.center[0], UI.center[1]+175), (300,40), 0.5, 0, 100),
             # Slider((UI.center[0], UI.center[1]+150), (1000,20), 0.5, 300, 100)
         ]
 
