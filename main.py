@@ -1,13 +1,30 @@
 import pygame
 import sys
 import os
+from button.button import Button
 
 pygame.init()
 window_size = (1200, 800)
 window = pygame.display.set_mode(window_size)
 pygame.display.set_caption("name of game!")
 clock = pygame.time.Clock()
-game_state = "main-page"
+
+#button setup:
+spec_rel_img = pygame.image.load('button/spec_rel_button.png').convert_alpha()
+main_menu_img = pygame.image.load('button/main menu.png').convert_alpha()
+
+# make buttons
+spec_rel_button = Button(160, 250, spec_rel_img, 0.1)
+main_menu_button = Button(400, 250, main_menu_img, 0.1)
+
+
+# define fonts
+font = pygame.font.SysFont("comicsans", 40)
+
+# define colors
+text_col = (255, 255, 255)
+
+
 
 class SystemStats:
     def __init__(self, name, distance_km, mass_kg):
@@ -42,18 +59,25 @@ systems_dict = {
 }
 
 curr_system = systems_dict["Earth"]
+game_state = "main-page"
+
 def all_found():
     for key in systems_dict:
         if (getattr(systems_dict[key], "found") == False):
             return False
     return True
-        
 
+
+def draw_text(text, font, text_col, x, y):
+    img = font.render(text, True, text_col)
+    window.blit(img, (x, y))
 
 
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
-    pygame.draw.rect(window, (255, 0, 0), pygame.Rect(30, 30, 60, 60))
+    print("drawing main page!")
+    main_menu_button.draw(window);
+    spec_rel_button.draw(window);
 
 def draw_launch_page(system):
     pygame.draw.rect(window, (0, 255, 0), pygame.Rect(30, 30, 60, 60))
@@ -76,6 +100,7 @@ def draw_win_page():
 
 exploring = True
 while exploring:
+    window.fill((52, 78, 91))
     clock.tick(60);
 
     for event in pygame.event.get():
@@ -100,6 +125,16 @@ while exploring:
             if event.key == pygame.K_m:
                 game_state = "main-page"
 
+    #actual button press commands!
+    if spec_rel_button.isClicked():
+        print("spec rel clicked!")
+        game_state = "handbook"
+
+    if main_menu_button.isClicked():
+        print("main menu clicked!")
+        game_state = "main-page"
+
+    #game state screen changes
     if game_state == "main-page":
         draw_main_page()
 
@@ -120,7 +155,6 @@ while exploring:
         
     if game_state == "win":
         draw_win_page()   
-
 
     if all_found():
         game_state = "win"
