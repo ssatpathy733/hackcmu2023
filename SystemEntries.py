@@ -30,6 +30,7 @@ def get_index_from_name(name):
     if name == "Earth":
         return 5
     return -1
+
 def get_system_entry(system_name):
     if system_name == "Proxima Centauri":
         return "proxima"
@@ -58,7 +59,7 @@ def get_distance(from_system, to_system):
                 [ 70, 23, 88, 12, 0 , 63 ],
                 [ 4.246, 7.795, 39.46, 1207, 63, 0 ]]
     
-    return distancesLY[index_from, index_to]
+    return distancesLY[index_from][index_to]
 
 
 systems_stats_dict = {
