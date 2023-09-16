@@ -1,3 +1,5 @@
+import pygame
+import sys
 from hbpages.events import EventHandler
 from hbpages.ui import UI, Menu
 from button.button import Button

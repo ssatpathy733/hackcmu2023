@@ -26,8 +26,8 @@ class Button:
             
         return action 
     
-    def draw(self, screen):
+    def draw(self, screen, x, y):
              # draw button on screen
-        screen.blit(self.image, (self.rect.x, self.rect.y))
+        screen.blit(self.image, (x, y))
 
         
