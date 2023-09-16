@@ -48,7 +48,7 @@ wolf_button = Button(160, 250, wolf_img, 0.1);
 
 
 # define fonts
-font = pygame.font.SysFont("comicsans", 40)
+myfont = pygame.font.SysFont("monospace", 30)
 
 # define colors
 text_col = (255, 255, 255)
@@ -68,7 +68,6 @@ def all_found():
 def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
     window.blit(img, (x, y))
-
 
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
@@ -94,6 +93,16 @@ def draw_choose_speed():
 
 def draw_landing_page(system):
     window.fill((52, 78, 91))
+    # variables to create:
+    # circle colour
+    # outer circle ring colour    
+    #pygame.draw.rect(window, (200, 200, 0), pygame.Rect(30, 30, 60, 60))
+    pygame.draw.circle(window, (171, 214, 212), (200, 350), 400, 0)
+    pygame.draw.circle(window, (191, 224, 222), (200, 350), 400, 10)
+    label = myfont.render(f"Welcome to {system}!", 1, (255, 255, 255))
+    label_rect = label.get_rect(center=(1300, 800))
+    window.blit(label, label_rect)
+
 
     cont_button.draw(window, 1100, 650)
 
@@ -124,6 +133,7 @@ def draw_win_page():
     playag_button.draw(window, 700, 100)
 
 
+
 exploring = True
 while exploring:
     print("game state: " + game_state)
@@ -146,11 +156,11 @@ while exploring:
             if event.key == pygame.K_a:
                 game_state = "landing"
             if event.key == pygame.K_c:
-                game_state = "choose-speed"
+                 game_state = "choose-speed"
             if event.key == pygame.K_h:
-                game_state = "handbook"
+                 game_state = "handbook"
             if event.key == pygame.K_w:
-                game_state = "win"
+                 game_state = "win"
             if event.key == pygame.K_m:
                 game_state = "main-page"
             
