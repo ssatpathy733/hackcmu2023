@@ -113,8 +113,9 @@ def draw_relativity():
     window.fill((52, 78, 91))
     relativity = Relativity()
     relativity.run()
+    print("returned!")
+    game_state = "handbook"
     
-
 def draw_handbook_page():
     window.fill((52, 78, 91))
 
@@ -269,6 +270,7 @@ while exploring:
     
     if game_state == "relativity":
         draw_relativity()
+        print("back in main loop")
         
     if game_state == "win":
         draw_win_page()   
