@@ -37,6 +37,9 @@ class Menu:
             # Slider((UI.center[0], UI.center[1]+150), (1000,20), 0.5, 300, 100)
         ]
 
+    def scroll_mech(self):
+        self.app.scroll -= self.sliders[0].change_scrolling_speed()
+
     def run(self):
         mouse_pos = pygame.mouse.get_pos()
         mouse = pygame.mouse.get_pressed()
@@ -83,6 +86,7 @@ class Slider:
         self.slider_left_pos = self.pos[0] - (size[0]//2)
         self.slider_right_pos = self.pos[0] + (size[0]//2)
         self.slider_top_pos = self.pos[1] - (size[1]//2)
+        self.slider_bottom_pos = self.pos[1] + (size[1]//2)
 
         self.min = min
         self.max = max
@@ -93,7 +97,7 @@ class Slider:
 
         # label
         self.text = UI.fonts['m'].render(str(int(self.get_value())), True, "white", None)
-        self.label_rect = self.text.get_rect(center = (self.pos[0], self.slider_top_pos - 15))
+        self.label_rect = self.text.get_rect(center = (self.pos[0], self.slider_bottom_pos + 15))
         
     def move_slider(self, mouse_pos):
         pos = mouse_pos[0]
@@ -109,6 +113,9 @@ class Slider:
         pygame.draw.rect(app.screen, BUTTONSTATES[self.hovered], self.button_rect)
 
     def change_scrolling_speed(self):
+        value = self.get_value()
+        new_speed = value * 19 / 99
+        return new_speed
 
     def get_value(self):
         val_range = self.slider_right_pos - self.slider_left_pos - 1

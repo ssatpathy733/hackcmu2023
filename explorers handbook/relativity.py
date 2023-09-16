@@ -52,8 +52,8 @@ class relativity:
                 self.screen.blit(self.bg, (i * self.bg_width + self.scroll, 0))
 
             # scroll background
-            self.scroll -= self.menu.change_scrolling_speed()
-
+            # self.scroll -= self.menu.change_scrolling_speed()
+            self.menu.scroll_mech()
             # rest scroll
             if abs(self.scroll) > self.bg_width:
                 self.scroll = 0
