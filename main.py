@@ -42,6 +42,12 @@ systems_dict = {
 }
 
 curr_system = systems_dict["Earth"]
+def all_found():
+    for key in systems_dict:
+        if (getattr(systems_dict[key], "found") == False):
+            return False
+    return True
+        
 
 
 
@@ -113,5 +119,8 @@ while exploring:
     if game_state == "win":
         draw_win_page()   
 
+
+    if all_found():
+        game_state = "win"
     pygame.display.flip()
 pygame.quit()
