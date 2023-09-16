@@ -7,7 +7,7 @@ window_size = (1200, 800)
 window = pygame.display.set_mode(window_size)
 pygame.display.set_caption("name of game!")
 clock = pygame.time.Clock()
-game_state = "main-page"
+game_state = "landing-page"
 
 class SystemStats:
     def __init__(self, name, distance_km, mass_kg):
@@ -51,27 +51,18 @@ def all_found():
 
 
 
-#fill these in with actual graphics and relevant code 
-def draw_main_page():
-    pygame.draw.rect(window, (255, 0, 0), pygame.Rect(30, 30, 60, 60))
-
-def draw_launch_page(system):
-    pygame.draw.rect(window, (0, 255, 0), pygame.Rect(30, 30, 60, 60))
-
-def draw_choose_speed():
-    pygame.draw.rect(window, (0, 0, 255), pygame.Rect(30, 30, 60, 60))
-
+#fill these in with actual graphics and relevant code
 def draw_landing_page(system):
-    pygame.draw.rect(window, (200, 200, 0), pygame.Rect(30, 30, 60, 60))
-
-def draw_system_stats(system):
-    pygame.draw.rect(window, (0, 200, 200), pygame.Rect(30, 30, 60, 60))
-
-def draw_handbook_page():
-    pygame.draw.rect(window, (0, 200, 200), pygame.Rect(30, 30, 60, 60))
-
-def draw_win_page():
-    pygame.draw.rect(window, (200, 0, 200), pygame.Rect(30, 30, 60, 60))
+    # variables to create:
+    # circle colour
+    # outer circle ring colour
+    myfont = pygame.font.SysFont("monospace", 30)
+    #pygame.draw.rect(window, (200, 200, 0), pygame.Rect(30, 30, 60, 60))
+    pygame.draw.circle(window, (171, 214, 212), (200, 350), 400, 0)
+    pygame.draw.circle(window, (191, 224, 222), (200, 350), 400, 10)
+    label = myfont.render(f"Welcome to {system}!", 1, (255, 255, 255))
+    label_rect = label.get_rect(center=(1300, 800))
+    window.blit(label, label_rect)
 
 
 exploring = True
@@ -87,16 +78,14 @@ while exploring:
             if event.key == pygame.K_q:
                 exploring = False
                 pygame.quit()
-            if event.key == pygame.K_l:
-                game_state = "launching"
             if event.key == pygame.K_a:
                 game_state = "landing"
-            if event.key == pygame.K_c:
-                game_state = "choose-speed"
-            if event.key == pygame.K_h:
-                game_state = "handbook"
-            if event.key == pygame.K_w:
-                game_state = "win"
+            # if event.key == pygame.K_c:
+            #     game_state = "choose-speed"
+            # if event.key == pygame.K_h:
+            #     game_state = "handbook"
+            # if event.key == pygame.K_w:
+            #     game_state = "win"
             if event.key == pygame.K_m:
                 game_state = "main-page"
 
