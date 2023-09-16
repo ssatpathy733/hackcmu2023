@@ -126,3 +126,4 @@ while exploring:
         game_state = "win"
     pygame.display.flip()
 pygame.quit()
+
