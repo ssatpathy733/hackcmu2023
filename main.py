@@ -27,10 +27,11 @@ text_col = (255, 255, 255)
 
 
 class SystemStats:
-    def __init__(self, name, distance_km, mass_kg):
+    def __init__(self, name, distance_km, num_planets, entry):
         self.name = name
         self.distance_km = distance_km
-        self.mass_kg = mass_kg
+        self.num_planets = num_planets
+        self.entry = entry
 
 class System:
     def __init__(self, name, linked_systems, found, system_stats):
