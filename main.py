@@ -11,11 +11,11 @@ clock = pygame.time.Clock()
 
 #button setup:
 spec_rel_img = pygame.image.load('button/spec_rel_button.png').convert_alpha()
-quit_img = pygame.image.load('button/main menu.png').convert_alpha()
+main_menu_img = pygame.image.load('button/main menu.png').convert_alpha()
 
 # make buttons
 spec_rel_button = Button(160, 250, spec_rel_img, 0.1)
-quit_button = Button(400, 250, quit_img, 0.1)
+main_menu_button = Button(400, 250, main_menu_img, 0.1)
 
 
 # define fonts
@@ -73,11 +73,11 @@ def draw_text(text, font, text_col, x, y):
     window.blit(img, (x, y))
 
 
-
-
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
-    pygame.draw.rect(window, (255, 0, 0), pygame.Rect(30, 30, 60, 60))
+    print("drawing main page!")
+    main_menu_button.draw(window);
+    spec_rel_button.draw(window);
 
 def draw_launch_page(system):
     pygame.draw.rect(window, (0, 255, 0), pygame.Rect(30, 30, 60, 60))
@@ -126,11 +126,13 @@ while exploring:
                 game_state = "main-page"
 
     #actual button press commands!
-    if spec_rel_button.draw(window):
+    if spec_rel_button.isClicked():
+        print("spec rel clicked!")
         game_state = "handbook"
 
-    if quit_button.draw(window):
-        exploring = False
+    if main_menu_button.isClicked():
+        print("main menu clicked!")
+        game_state = "main-page"
 
     #game state screen changes
     if game_state == "main-page":
