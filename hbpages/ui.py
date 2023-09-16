@@ -1,4 +1,5 @@
 import pygame
+# from relativity import screen
 
 UNSELECTED = "red"
 SELECTED = "white"
@@ -32,7 +33,7 @@ class Menu:
 
         self.sliders = [
             # Slider(UI.center, (100,30), 0.5, 0, 100),
-            Slider((UI.center[0], UI.center[1]+75), (300,40), 0.5, 50, 100),
+            Slider((UI.center[0], UI.center[1]+175), (300,40), 0.5, 50, 100),
             # Slider((UI.center[0], UI.center[1]+150), (1000,20), 0.5, 300, 100)
         ]
 
@@ -40,7 +41,7 @@ class Menu:
         mouse_pos = pygame.mouse.get_pos()
         mouse = pygame.mouse.get_pressed()
 
-        self.app.screen.fill("black")
+        # self.app.screen.fill("black")
         for slider in self.sliders:
             if slider.container_rect.collidepoint(mouse_pos):
                 if mouse[0]:
