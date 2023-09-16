@@ -19,8 +19,8 @@ class HandbookMenu:
         self.mainmen_img = pygame.image.load('button/mainmen_button.png').convert_alpha()
 
         # make buttons
-        self.rel_button = Button(160, 250, self.rel_img, 0.1)
-        self.mainmen_button = Button(400, 250, self.mainmen_img, 0.1)
+        self.rel_button = Button(width/2, 250, self.rel_img, 0.2)
+        self.mainmen_button = Button(width/2, 500, self.mainmen_img, 0.2)
 
     def draw_text(self, text, font, text_col, x, y):
         img = font.render(text, True, text_col)
