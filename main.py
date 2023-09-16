@@ -90,8 +90,8 @@ def draw_main_page():
     window.blit(label, label_rect)
 
 
-    launch_button.draw(window, 300, 500)
-    hb_button.draw(window, 300, 250)
+    launch_button.draw(window, 450, 500)
+    hb_button.draw(window, 450, 250)
 
 def draw_launch_page(system):
     window.fill((52, 78, 91))
