@@ -71,30 +71,44 @@ def draw_text(text, font, text_col, x, y):
 
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
+    window.fill((52, 78, 91))
+
     launch_button.draw(window, 300, 600)
     hb_button.draw(window, 350, 250)
 
 def draw_launch_page(system):
-    earth_button.draw(window, 100, 750)
-    hd_button.draw(window, 100, 650)
-    kep_button.draw(window, 100, 550)
-    proxcent_button.draw(window, 50, 450)
-    trap_button.draw(window, 100, 350)
-    wolf_button.draw(window, 100, 250)
+    window.fill((52, 78, 91))
+
+    earth_button.draw(window, 150, 600)
+    hd_button.draw(window, 150, 500)
+    kep_button.draw(window, 150, 400)
+    proxcent_button.draw(window, 150, 300)
+    trap_button.draw(window, 150, 200)
+    wolf_button.draw(window, 150, 100)
 
 def draw_choose_speed():
-    cont_button.draw(window, 1300, 750)
+    window.fill((52, 78, 91))
+
+    cont_button.draw(window, 1100, 650)
 
 def draw_landing_page(system):
-    cont_button.draw(window, 1300, 750)
+    window.fill((52, 78, 91))
+
+    cont_button.draw(window, 1100, 650)
 
 def draw_system_stats(system):
+    window.fill((52, 78, 91))
+
     hb_button.draw(window, 100, 100)
 
 def draw_relativity():
+    window.fill((52, 78, 91))
+
     hb_button.draw(window, 100, 100)
 
 def draw_handbook_page():
+    window.fill((52, 78, 91))
+
     mainmen_button.draw(window, 100, 100)
     rel_button.draw(window, 500, 100)
     earth_button.draw(window, 200, 200)
@@ -105,6 +119,8 @@ def draw_handbook_page():
     wolf_button.draw(window, 1200, 200)
 
 def draw_win_page():
+    window.fill((52, 78, 91))
+
     playag_button.draw(window, 700, 100)
 
 
@@ -119,9 +135,11 @@ while exploring:
         if event.type == pygame.KEYDOWN:
 
             #these will need to be changed to button presses in game once we get buttons done - everything should be via changing game-state tho!
+           
             if event.key == pygame.K_q:
                 exploring = False
                 pygame.quit()
+            
             if event.key == pygame.K_l:
                 game_state = "launching"
             if event.key == pygame.K_a:
@@ -134,79 +152,80 @@ while exploring:
                 game_state = "win"
             if event.key == pygame.K_m:
                 game_state = "main-page"
-
+            
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
     #actual button press commands!
-    if hb_button.isClicked():
-        game_state = "handbook"
+            if hb_button.isClicked():
+                game_state = "handbook"
 
-    if mainmen_button.isClicked():
-        game_state = "main-page"
+            if mainmen_button.isClicked():
+                game_state = "main-page"
 
-    if launch_button.isClicked():
-        curr_system = systems_dict["Earth"]
-        game_state = "launching"
+            if launch_button.isClicked():
+                curr_system = systems_dict["Earth"]
+                game_state = "launching"
 
-    if playag_button.isClicked():
-        game_state = "main-page"
-        for key in systems_dict:
-            setattr(systems_dict[key], "found", False)
+            if playag_button.isClicked():
+                game_state = "main-page"
+                for key in systems_dict:
+                    setattr(systems_dict[key], "found", False)
 
-    if cont_button.isClicked():
-        if game_state == "choose-speed":
-            game_state = "landing"
-        elif game_state == "landing":
-            game_state = "launching"
+            if cont_button.isClicked():
+                if game_state == "choose-speed":
+                    game_state = "landing"
+                elif game_state == "landing":
+                    game_state = "launching"
 
-    if earth_button.isClicked() and game_state == "launching":
-        game_state = "choose-speed"
-        curr_system = systems_dict["Earth"]
+            if earth_button.isClicked() and game_state == "launching":
+                game_state = "choose-speed"
+                curr_system = systems_dict["Earth"]
 
-    if hd_button.isClicked() and game_state == "launching":
-        game_state = "choose-speed"
-        curr_system = systems_dict["HD 189733b"]
+            if hd_button.isClicked() and game_state == "launching":
+                game_state = "choose-speed"
+                curr_system = systems_dict["HD 189733b"]
 
-    if kep_button.isClicked() and game_state == "launching":
-        game_state = "choose-speed"
-        curr_system = systems_dict["Kepler-62"]
+            if kep_button.isClicked() and game_state == "launching":
+                game_state = "choose-speed"
+                curr_system = systems_dict["Kepler-62"]
 
-    if proxcent_button.isClicked() and game_state == "launching":
-        game_state = "choose-speed"
-        curr_system = systems_dict["Proxima Centauri"]
+            if proxcent_button.isClicked() and game_state == "launching":
+                game_state = "choose-speed"
+                curr_system = systems_dict["Proxima Centauri"]
 
-    if trap_button.isClicked() and game_state == "launching":
-        game_state = "choose-speed"
-        curr_system = systems_dict["TRAPPIST-1"]
+            if trap_button.isClicked() and game_state == "launching":
+                game_state = "choose-speed"
+                curr_system = systems_dict["TRAPPIST-1"]
 
-    if wolf_button.isClicked() and game_state == "launching":
-        game_state = "choose-speed"
-        curr_system = systems_dict["Wolf 359"]
+            if wolf_button.isClicked() and game_state == "launching":
+                game_state = "choose-speed"
+                curr_system = systems_dict["Wolf 359"]
 
-    
+            
 
 
-    if earth_button.isClicked() and game_state == "handbook":
-        game_state = "system-stats"
-        display_system = systems_dict["Earth"]
+            if earth_button.isClicked() and game_state == "handbook":
+                game_state = "system-stats"
+                display_system = systems_dict["Earth"]
 
-    if hd_button.isClicked() and game_state == "handbook":
-        game_state = "system-stats"
-        display_system = systems_dict["HD 189733b"]
+            if hd_button.isClicked() and game_state == "handbook":
+                game_state = "system-stats"
+                display_system = systems_dict["HD 189733b"]
 
-    if kep_button.isClicked() and game_state == "handbook":
-        game_state = "system-stats"
-        display_system = systems_dict["Kepler-62"]
+            if kep_button.isClicked() and game_state == "handbook":
+                game_state = "system-stats"
+                display_system = systems_dict["Kepler-62"]
 
-    if proxcent_button.isClicked() and game_state == "handbook":
-        game_state = "system-stats"
-        display_system = systems_dict["Proxima Centauri"]
+            if proxcent_button.isClicked() and game_state == "handbook":
+                game_state = "system-stats"
+                display_system = systems_dict["Proxima Centauri"]
 
-    if trap_button.isClicked() and game_state == "handbook":
-        game_state = "system-stats"
-        display_system = systems_dict["TRAPPIST-1"]
+            if trap_button.isClicked() and game_state == "handbook":
+                game_state = "system-stats"
+                display_system = systems_dict["TRAPPIST-1"]
 
-    if wolf_button.isClicked() and game_state == "handbook":
-        game_state = "system-stats"
-        display_system = systems_dict["Wolf 359"]
+            if wolf_button.isClicked() and game_state == "handbook":
+                game_state = "system-stats"
+                display_system = systems_dict["Wolf 359"]
 
     if all_found():
         game_state = "win"
