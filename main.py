@@ -2,12 +2,17 @@ import pygame
 import sys
 import os
 
+
 pygame.init()
 window_size = (1200, 800)
 window = pygame.display.set_mode(window_size)
 pygame.display.set_caption("name of game!")
 clock = pygame.time.Clock()
 game_state = "landing-page"
+# space = pygame.image.load("space_background.jpeg")
+# space_rect = space.get_rect(center = (600, 400))
+# pygame.rect.scale(20)
+
 
 class SystemStats:
     def __init__(self, name, distance_km, mass_kg):
@@ -57,14 +62,22 @@ def draw_landing_page(system):
     # circle colour
     # outer circle ring colour
     myfont = pygame.font.SysFont("monospace", 30)
-    #pygame.draw.rect(window, (200, 200, 0), pygame.Rect(30, 30, 60, 60))
-    pygame.draw.circle(window, (171, 214, 212), (200, 350), 400, 0)
-    pygame.draw.circle(window, (191, 224, 222), (200, 350), 400, 10)
-    label = myfont.render(f"Welcome to {system}!", 1, (255, 255, 255))
-    label_rect = label.get_rect(center=(1300, 800))
+    pygame.draw.circle(window, (171, 214, 212), (200, 300), 400, 0)
+    pygame.draw.circle(window, (191, 224, 222), (200, 300), 400, 10)
+    label = myfont.render(f"Welcome to {system}!", 1, (255, 255, 255))  # this needs to say the actual name of the system
+    label_rect = label.get_rect(center=(600, 750))
     window.blit(label, label_rect)
-    # put a continue button or have it automatically change to the next screen
+    # put a continue button or have it automatically change to the next screen w/ timer
 
+def draw_launching_page(self, system):
+    # variables to create:
+    # circle colour
+    # outer circle ring colour
+    myfont = pygame.font.SysFont("monospace", 30)
+    pygame.draw.circle(window, (171, 214, 212), (600, 1200), 800, 0)
+    pygame.draw.circle(window, (191, 224, 222), (600, 1200), 800, 10)
+    label = myfont.render("Where to next, explorer?", 1, (255, 255, 255))
+    label_rect = label.get_rect(center=(600, 600))
 
 exploring = True
 while exploring:
@@ -81,20 +94,22 @@ while exploring:
                 pygame.quit()
             if event.key == pygame.K_a:
                 game_state = "landing"
-            # if event.key == pygame.K_c:
-            #     game_state = "choose-speed"
-            # if event.key == pygame.K_h:
-            #     game_state = "handbook"
-            # if event.key == pygame.K_w:
-            #     game_state = "win"
+            if event.key == pygame.K_c:
+                game_state = "choose-speed"
+            if event.key == pygame.K_h:
+                game_state = "handbook"
+            if event.key == pygame.K_w:
+                game_state = "win"
             if event.key == pygame.K_m:
                 game_state = "main-page"
+            if event.key == pygame.K_j:
+                game_state = "landing"
 
     if game_state == "main-page":
         draw_main_page()
 
     if game_state == "launching":
-        draw_launch_page(curr_system)
+        draw_launching_page(curr_system)
 
     if game_state == "choose-speed":
         draw_choose_speed()
@@ -108,8 +123,8 @@ while exploring:
     if game_state == "handbook":
         draw_handbook_page()
         
-    if game_state == "win":
-        draw_win_page()   
+    # if game_state == "win":
+    #     draw_win_page()
 
 
     if all_found():
