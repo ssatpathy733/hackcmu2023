@@ -63,6 +63,7 @@ def draw_landing_page(system):
     label = myfont.render(f"Welcome to {system}!", 1, (255, 255, 255))
     label_rect = label.get_rect(center=(1300, 800))
     window.blit(label, label_rect)
+    # put a continue button or have it automatically change to the next screen
 
 
 exploring = True
