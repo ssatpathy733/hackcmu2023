@@ -2,6 +2,13 @@ import pygame
 import sys
 import os
 from button.button import Button
+import SystemEntries
+from SystemEntries import System
+from SystemEntries import SystemStats
+from SystemEntries import systems_dict
+from SystemEntries import systems_stats_dict
+
+
 
 pygame.init()
 window_size = (1200, 800)
@@ -24,40 +31,6 @@ font = pygame.font.SysFont("comicsans", 40)
 # define colors
 text_col = (255, 255, 255)
 
-
-
-class SystemStats:
-    def __init__(self, name, distance_km, num_planets, entry):
-        self.name = name
-        self.distance_km = distance_km
-        self.num_planets = num_planets
-        self.entry = entry
-
-class System:
-    def __init__(self, name, linked_systems, found, system_stats):
-        self.name = name
-        self.linked_systems = linked_systems
-        self.found = found
-        self.system_stats = system_stats
-
-systems_stats_dict = {
-    "Proxima Centauri": SystemStats("Proxima Centauri", 1000, 1000),
-    "Wolf 359": SystemStats("Wolf 359", 1000, 1000),
-    "System 3": SystemStats("System 3", 1000, 1000),
-    "System 4": SystemStats("System 4", 1000, 1000),
-    "System 5": SystemStats("System 5", 1000, 1000),
-    "Earth": SystemStats("Earth", 1000, 1000)
-}
-
-systems_dict = {
-    "Proxima Centauri": System("Proxima Centauri", [], False, systems_stats_dict["Proxima Centauri"]), 
-    "Wolf 359": System("Wolf 359", [], False, systems_stats_dict["Wolf 359"]), 
-    "System 3": System("System 3", [], False, systems_stats_dict["System 3"]), 
-    "System 4": System("System 4", [], False, systems_stats_dict["System 4"]), 
-    "System 5": System("System 5", [], False, systems_stats_dict["System 5"]), 
-    "Earth": System("Earth", [], False, systems_stats_dict["Earth"])
-
-}
 
 curr_system = systems_dict["Earth"]
 game_state = "main-page"
