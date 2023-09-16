@@ -82,6 +82,8 @@ while exploring:
         if event.type == pygame.QUIT: 
             exploring = False
         if event.type == pygame.KEYDOWN:
+
+            #these will need to be changed to button presses in game once we get buttons done - everything should be via changing game-state tho!
             if event.key == pygame.K_q:
                 exploring = False
                 pygame.quit()
