@@ -274,7 +274,9 @@ while exploring:
         draw_win_page()   
 
     pygame.display.flip()
+
     if click_timer > 0:
         click_timer -= 1
-print(all_found())
+
+
 pygame.quit()
