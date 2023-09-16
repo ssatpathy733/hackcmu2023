@@ -54,10 +54,9 @@ class Relativity:
                         self.running = False
                     if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                         print("pressing something")
-                        if self.hb_button.isClicked(pygame.mouse.get_pos()):
-                            print("quitting train")
-                            self.running = False
-                            break
+            if self.hb_button.isClicked(pygame.mouse.get_pos()):
+                print("quitting train")
+                self.running = False
 
             # scrolling mechanism
             self.screen.blit(self.bg, (0,0))
