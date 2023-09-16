@@ -57,6 +57,7 @@ text_col = (255, 255, 255)
 
 curr_system = systems_dict["Earth"]
 display_system = systems_dict["Earth"]
+prev_system = systems_dict["Earth"]
 game_state = "main-page"
 
 def all_found():
@@ -65,6 +66,11 @@ def all_found():
             return False
     return True
 
+def calculate_time_dilation(distance, speed):
+    return 3
+
+def calculate_earth_time(distance, speed):
+    return 5
 
 def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
@@ -98,8 +104,24 @@ def draw_launch_page(system):
     trap_button.draw(window, 150, 200)
     wolf_button.draw(window, 150, 100)
 
-def draw_choose_speed():
+def draw_choose_speed(from_system, to_system):
+    from_system_name = getattr(from_system, "name")
+    to_system_name = getattr(to_system, "name")
     window.fill((52, 78, 91))
+    speed = 50;
+    time_dilation = calculate_time_dilation(SystemEntries.get_distance(from_system, to_system), speed)
+    earth_time = calculate_earth_time(SystemEntries.get_distance(from_system, to_system), speed)
+    label1 = myfont.render(f"From {from_system_name} to {to_system_name}:", 1, (255, 255, 255))
+    label2 = myfont.render(f"It will take you {time_dilation} years travelling at {speed}% the speed of light", 1, (255, 255, 255))
+    label3 = myfont.render(f"{earth_time} years will pass on Earth!", 1, (255, 255, 255))
+
+    label1_rect = label1.get_rect(center=(750, 100))
+    label2_rect = label2.get_rect(center=(750, 350))
+    label3_rect = label3.get_rect(center=(750, 600))
+
+    window.blit(label1, label1_rect)
+    window.blit(label2, label2_rect)
+    window.blit(label3, label3_rect)
 
     cont_button.draw(window, 1100, 650)
 
@@ -191,6 +213,8 @@ while exploring:
 
             if launch_button.isClicked(pygame.mouse.get_pos()):
                 curr_system = systems_dict["Earth"]
+                prev_system = systems_dict["Earth"]
+
                 game_state = "launching"
 
             if playag_button.isClicked(pygame.mouse.get_pos()):
@@ -206,26 +230,32 @@ while exploring:
 
             if earth_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
+                prev_system = curr_system
                 curr_system = systems_dict["Earth"]
 
             if hd_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
+                prev_system = curr_system
                 curr_system = systems_dict["HD 189733b"]
 
             if kep_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
+                prev_system = curr_system
                 curr_system = systems_dict["Kepler-62"]
 
             if proxcent_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
+                prev_system = curr_system
                 curr_system = systems_dict["Proxima Centauri"]
 
             if trap_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
+                prev_system = curr_system
                 curr_system = systems_dict["TRAPPIST-1"]
 
             if wolf_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
+                prev_system = curr_system
                 curr_system = systems_dict["Wolf 359"]
 
             
@@ -267,7 +297,7 @@ while exploring:
         draw_launch_page(curr_system)
 
     if game_state == "choose-speed":
-        draw_choose_speed()
+        draw_choose_speed(prev_system, curr_system)
 
     if game_state == "landing":
         draw_landing_page(curr_system)

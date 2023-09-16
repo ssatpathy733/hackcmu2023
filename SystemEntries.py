@@ -29,6 +29,8 @@ def get_system_entry(system_name):
     if system_name == "Earth":
         return "earth"
     return system_name + "not found"
+def get_distance(from_system, to_system):
+    return 4
 
 systems_stats_dict = {
     "Proxima Centauri": SystemStats("Proxima Centauri", 1000, 1000, get_system_entry("Proxima Centauri")),
