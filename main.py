@@ -318,6 +318,7 @@ while exploring:
     if game_state == "relativity":
         draw_relativity()
         print("back in main loop")
+        game_state = "handbook"
         
     if game_state == "win":
         draw_win_page()   
