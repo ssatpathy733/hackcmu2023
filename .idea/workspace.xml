@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5e917a42-b26b-4cc3-a746-8aeaf95d3715" name="Changes" comment="1:30 baby">
+      <change afterPath="$PROJECT_DIR$/button/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/button/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hbpages/assets/mainmen_bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hbpages/assets/hb_bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/hbpages/assets/hb_bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2VSb1ZQesZsI8WQIK2FbqPpCP3Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "karen__great__adventures",
+    "settings.editor.selected.configurable": "Errors"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/button" />
+      <recent name="$PROJECT_DIR$/hbpages/assets" />
+      <recent name="$PROJECT_DIR$/explorers handbook" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e917a42-b26b-4cc3-a746-8aeaf95d3715" name="Changes" comment="" />
+      <created>1694832213886</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694832213886</updated>
+    </task>
+    <task id="LOCAL-00001" summary="hahaha it's past my bedtime">
+      <option name="closed" value="true" />
+      <created>1694833838946</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694833838946</updated>
+    </task>
+    <task id="LOCAL-00002" summary="it's way past my bedtime :((( also integrated relativity animation with my handbook menu">
+      <option name="closed" value="true" />
+      <created>1694835553036</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694835553036</updated>
+    </task>
+    <task id="LOCAL-00003" summary="it's way past my bedtime :((( also integrated relativity animation with my handbook menu">
+      <option name="closed" value="true" />
+      <created>1694840066469</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694840066469</updated>
+    </task>
+    <task id="LOCAL-00004" summary="wow time to go to sleep. grandma is tired. way past her bedtime">
+      <option name="closed" value="true" />
+      <created>1694840889388</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694840889388</updated>
+    </task>
+    <task id="LOCAL-00005" summary="wow time to go to sleep. grandma is tired. way past her bedtime">
+      <option name="closed" value="true" />
+      <created>1694869025265</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694869025265</updated>
+    </task>
+    <task id="LOCAL-00006" summary="handbook links to relativity animation, relativity animation working">
+      <option name="closed" value="true" />
+      <created>1694874555456</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694874555456</updated>
+    </task>
+    <task id="LOCAL-00007" summary="handbook page graphics">
+      <option name="closed" value="true" />
+      <created>1694879018714</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694879018714</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed bug with handbook button&#10;&#10;made changes to button class, but should not affect your implementations">
+      <option name="closed" value="true" />
+      <created>1694879696931</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694879696931</updated>
+    </task>
+    <task id="LOCAL-00009" summary="????????">
+      <option name="closed" value="true" />
+      <created>1694881537630</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694881537630</updated>
+    </task>
+    <task id="LOCAL-00010" summary="????????">
+      <option name="closed" value="true" />
+      <created>1694883583545</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694883583545</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1:30 baby">
+      <option name="closed" value="true" />
+      <created>1694883808008</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694883808008</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hahaha it's past my bedtime" />
+    <MESSAGE value="it's way past my bedtime :((( also integrated relativity animation with my handbook menu" />
+    <MESSAGE value="wow time to go to sleep. grandma is tired. way past her bedtime" />
+    <MESSAGE value="handbook links to relativity animation, relativity animation working" />
+    <MESSAGE value="handbook page graphics" />
+    <MESSAGE value="fixed bug with handbook button&#10;&#10;made changes to button class, but should not affect your implementations" />
+    <MESSAGE value="????????" />
+    <MESSAGE value="1:30 baby" />
+    <option name="LAST_COMMIT_MESSAGE" value="1:30 baby" />
+  </component>
+</project>
