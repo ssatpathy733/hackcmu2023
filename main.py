@@ -3,6 +3,7 @@ import sys
 from events import EventHandler
 from ui import UI, Menu
 
+
 train = pygame.image.load("assets/train.png")
 
 width = 1500
@@ -14,6 +15,8 @@ WHITE = (255,255,255)
 BLACK = (0,0,0)
 
 flag = True
+
+
 
 
 # characters
