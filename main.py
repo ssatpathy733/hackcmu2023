@@ -51,6 +51,8 @@ wolf_button = Button(160, 250, wolf_img, 0.1);
 
 # define fonts
 myfont = pygame.font.SysFont("monospace", 30)
+titlefont = pygame.font.SysFont("monospace", 50)
+
 
 # define colors
 text_col = (255, 255, 255)
@@ -83,6 +85,10 @@ def draw_text(text, font, text_col, x, y):
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
     window.fill((52, 78, 91))
+    label = titlefont.render("HITCHHACKER'S GUIDE TO THE GALAXY", 1, (255, 255, 255))
+    label_rect = label.get_rect(center=(750, 100))
+    window.blit(label, label_rect)
+
 
     launch_button.draw(window, 300, 500)
     hb_button.draw(window, 300, 250)
@@ -114,10 +120,11 @@ def draw_choose_speed(from_system, to_system):
     window.fill((52, 78, 91))
 
     speed = 50; #REPLACE WITH SLIDER INPUT
-    time_dilation = round(calculate_astro_time(SystemEntries.get_distance(from_system, to_system), speed), 3)
-    earth_time = round(calculate_earth_time(SystemEntries.get_distance(from_system, to_system), speed), 3)
+    distance = SystemEntries.get_distance(from_system, to_system)
+    time_dilation = round(calculate_astro_time(distance, speed), 3)
+    earth_time = round(calculate_earth_time(distance, speed), 3)
 
-    label1 = myfont.render(f"From {from_system_name} to {to_system_name}:", 1, (255, 255, 255))
+    label1 = myfont.render(f"From {from_system_name} to {to_system_name}: {distance} light years away", 1, (255, 255, 255))
     label2 = myfont.render(f"It will take you {time_dilation} years travelling at {speed}% the speed of light", 1, (255, 255, 255))
     label3 = myfont.render(f"{earth_time} years will pass on Earth!", 1, (255, 255, 255))
 
