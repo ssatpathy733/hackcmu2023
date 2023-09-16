@@ -101,7 +101,7 @@ def draw_landing_page(system):
     pygame.draw.circle(window, getattr(curr_system, "color"), (200, 350), 400, 0)
     pygame.draw.circle(window, (191, 224, 222), (200, 350), 400, 10)
     label = myfont.render(f"Welcome to {name}!", 1, (255, 255, 255))
-    label_rect = label.get_rect(center=(1300, 800))
+    label_rect = label.get_rect(center=(1100, 600))
     window.blit(label, label_rect)
 
 
