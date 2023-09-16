@@ -272,6 +272,7 @@ while exploring:
 
     if game_state == "launching":
         draw_launch_page(curr_system)
+
         if earth_button.isClicked(pygame.mouse.get_pos()):
             game_state = "choose-speed"
             prev_system = curr_system
@@ -305,8 +306,19 @@ while exploring:
     if game_state == "choose-speed":
         draw_choose_speed(prev_system, curr_system)
 
+        if cont_button.isClicked(pygame.mouse.get_pos()):
+            if game_state == "choose-speed":
+                game_state = "landing"
+            elif game_state == "landing":
+                game_state = "launching"
+
     if game_state == "landing":
         draw_landing_page(curr_system)
+        if cont_button.isClicked(pygame.mouse.get_pos()):
+            if game_state == "choose-speed":
+                game_state = "landing"
+            elif game_state == "landing":
+                game_state = "launching"
         setattr(curr_system, "found", True)
 
     if game_state == "system-stats":
