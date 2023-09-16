@@ -7,6 +7,7 @@ from SystemEntries import System
 from SystemEntries import SystemStats
 from SystemEntries import systems_dict
 from SystemEntries import systems_stats_dict
+from hbpages.relativity import Relativity
 
 
 
@@ -110,8 +111,9 @@ def draw_system_stats(system):
 
 def draw_relativity():
     window.fill((52, 78, 91))
-
-    hb_button.draw(window, 100, 100)
+    relativity = Relativity()
+    relativity.run()
+    
 
 def draw_handbook_page():
     window.fill((52, 78, 91))
@@ -166,6 +168,10 @@ while exploring:
             if hb_button.isClicked(pygame.mouse.get_pos()):
                 print("clicked handbook")
                 game_state = "handbook"
+
+            if rel_button.isClicked(pygame.mouse.get_pos()):
+                print("clicked relativity!")
+                game_state = "relativity"
 
             if mainmen_button.isClicked(pygame.mouse.get_pos()):
                 print("clicked main page")
@@ -260,6 +266,9 @@ while exploring:
 
     if game_state == "handbook":
         draw_handbook_page()
+    
+    if game_state == "relativity":
+        draw_relativity()
         
     if game_state == "win":
         draw_win_page()   

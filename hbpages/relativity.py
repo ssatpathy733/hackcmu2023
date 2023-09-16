@@ -41,6 +41,7 @@ class Relativity:
         self.menu = Menu(self)
 
     def run(self):
+        print("running relativity!")
         self.running = True
         # self.screen.fill("black")
         while self.running:
