@@ -33,7 +33,7 @@ class Menu:
 
         self.sliders = [
             # Slider(UI.center, (100,30), 0.5, 0, 100),
-            Slider((UI.center[0], UI.center[1]+175), (300,40), 0.5, 50, 100),
+            Slider((UI.center[0], UI.center[1]+175), (300,40), 0.5, 0, 100),
             # Slider((UI.center[0], UI.center[1]+150), (1000,20), 0.5, 300, 100)
         ]
 
@@ -98,7 +98,8 @@ class Slider:
         # label
         self.text = UI.fonts['m'].render(str(int(self.get_value())), True, "white", None)
         self.label_rect = self.text.get_rect(center = (self.pos[0], self.slider_bottom_pos + 15))
-        
+
+
     def move_slider(self, mouse_pos):
         pos = mouse_pos[0]
         if pos < self.slider_left_pos:
@@ -122,9 +123,20 @@ class Slider:
         button_val = self.button_rect.centerx - self.slider_left_pos
 
         return (button_val/val_range)*(self.max-self.min)+self.min
+
+    # def display_text(self):
+
+
     def display_value(self, app):
         self.text = UI.fonts['m'].render(str(int(self.get_value())), True, "white", None)
         app.screen.blit(self.text, self.label_rect)
+
+        string = "Control the speed of you train! The numbers refer to percentage of the speed of light!"
+        self.text_intro = UI.fonts['m'].render(string, True, "black", None)
+        pos = self.text.get_rect(center=(self.pos[0]-350, self.slider_top_pos - 400))
+        app.screen.blit(self.text_intro, pos)
+
+
 
 
 
