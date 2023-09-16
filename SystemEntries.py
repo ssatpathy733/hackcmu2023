@@ -1,4 +1,5 @@
 # just a bunch of functions to return long strings of text!
+import array
 
 class SystemStats:
     def __init__(self, name, distance_km, num_planets, entry):
@@ -15,6 +16,20 @@ class System:
         self.color = color
         self.system_stats = system_stats
 
+def get_index_from_name(name):
+    if name == "Proxima Centauri":
+        return 0
+    if name == "Wolf 359":
+        return 1
+    if name == "TRAPPIST-1":
+        return 2
+    if name == "Kepler-62":
+        return 3
+    if name == "HD 189733b":
+        return 4
+    if name == "Earth":
+        return 5
+    return -1
 def get_system_entry(system_name):
     if system_name == "Proxima Centauri":
         return "proxima"
@@ -32,6 +47,18 @@ def get_system_entry(system_name):
 
 def get_distance(from_system, to_system):
     return 4
+    """
+    index_from = get_index_from_name(getattr(from_system, "name"))
+    index_to = get_index_from_name(getattr(to_system, "name"))
+
+    distancesLY = [[ 0 , , , , , 4.246],
+                [ 8.2, 0 , , , , 7.795 ],
+                [ 50, , 0 , , , 39.46 ],
+                [ 1500 , , , 0 , , 1207 ],
+                [ 70 , , , , 0 , 63 ],
+                [ 63 ,  , ,  , 1200 , 0 ]]
+                """
+
 
 systems_stats_dict = {
     "Proxima Centauri": SystemStats("Proxima Centauri", 1000, 1000, get_system_entry("Proxima Centauri")),

@@ -51,6 +51,8 @@ wolf_button = Button(160, 250, wolf_img, 0.1);
 
 # define fonts
 myfont = pygame.font.SysFont("monospace", 30)
+titlefont = pygame.font.SysFont("monospace", 50)
+
 
 # define colors
 text_col = (255, 255, 255)
@@ -83,6 +85,10 @@ def draw_text(text, font, text_col, x, y):
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
     window.fill((52, 78, 91))
+    label = titlefont.render("HITCHHACKER'S GUIDE TO THE GALAXY", 1, (255, 255, 255))
+    label_rect = label.get_rect(center=(750, 100))
+    window.blit(label, label_rect)
+
 
     launch_button.draw(window, 300, 500)
     hb_button.draw(window, 300, 250)
