@@ -8,10 +8,11 @@ class SystemStats:
         self.entry = entry
 
 class System:
-    def __init__(self, name, linked_systems, found, system_stats):
+    def __init__(self, name, linked_systems, found, color, system_stats):
         self.name = name
         self.linked_systems = linked_systems
         self.found = found
+        self.color = color
         self.system_stats = system_stats
 
 def get_system_entry(system_name):
@@ -39,11 +40,11 @@ systems_stats_dict = {
 }
 
 systems_dict = {
-    "Proxima Centauri": System("Proxima Centauri", [], False, systems_stats_dict["Proxima Centauri"]), 
-    "Wolf 359": System("Wolf 359", [], False, systems_stats_dict["Wolf 359"]), 
-    "TRAPPIST-1": System("TRAPPIST-1", [], False, systems_stats_dict["TRAPPIST-1"]), 
-    "Kepler-62": System("Kepler-62", [], False, systems_stats_dict["Kepler-62"]), 
-    "HD 189733b": System("HD 189733b", [], False, systems_stats_dict["HD 189733b"]), 
-    "Earth": System("Earth", [], False, systems_stats_dict["Earth"])
+    "Proxima Centauri": System("Proxima Centauri", [], False, (102, 102, 153), systems_stats_dict["Proxima Centauri"]), 
+    "Wolf 359": System("Wolf 359", [], False, (230, 80, 80), systems_stats_dict["Wolf 359"]), 
+    "TRAPPIST-1": System("TRAPPIST-1", [], False, (112, 196, 178), systems_stats_dict["TRAPPIST-1"]), 
+    "Kepler-62": System("Kepler-62", [], False, (156, 122, 65), systems_stats_dict["Kepler-62"]), 
+    "HD 189733b": System("HD 189733b", [], False, (111, 177, 222), systems_stats_dict["HD 189733b"]), 
+    "Earth": System("Earth", [], False, (76, 84, 186), systems_stats_dict["Earth"])
 }
 
