@@ -20,7 +20,7 @@ character = pygame.image.load("hbpages/assets/train.png")
 # return to handbook page
 
 
-class relativity:
+class Relativity:
     def __init__(self) -> None:
         pygame.init()
         self.screen = pygame.display.set_mode((width, height))
@@ -51,7 +51,7 @@ class relativity:
 
             add_train_at_location(train_x, train_y)
             if self.hb_button.draw(self.screen):
-                print("Bruuhhhhhhh")
+                self.running = False
 
             pygame.display.update()
 
@@ -59,7 +59,7 @@ class relativity:
         sys.exit()
 
 if __name__ == "__main__":
-    game = relativity()
+    game = Relativity()
     game.run()
 
 

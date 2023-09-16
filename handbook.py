@@ -2,60 +2,56 @@ import pygame
 # naming system:
 # from directory.fileName import className
 from button.button import Button
-from hbpages.relativity import relativity
+from hbpages.relativity import Relativity
+#        scr_width, scr_height = 1500, 844
 
-pygame.init()
+class HandbookMenu:
+    def __init__(self, width, height):
+        pygame.init()
+        # visuals
+        self.screen = pygame.display.set_mode((width, height))
+        self.font = pygame.font.SysFont("comicsans", 40)
+        self.text_col = (255, 255, 255)
 
-# set up screen
-scr_width, scr_height = 1500, 844
-screen = pygame.display.set_mode((scr_width, scr_height))
-pygame.display.set_caption("Explorer's Handbook")
+        # import images for buttons
+        # MAKE SURE FILE PATH NAMES ARE CORRECT
+        self.rel_img = pygame.image.load('button/rel_button.png').convert_alpha()
+        self.mainmen_img = pygame.image.load('button/mainmen_button.png').convert_alpha()
 
-# import images for buttons
-# MAKE SURE FILE PATH NAMES ARE CORRECT
-spec_rel_img = pygame.image.load('button/rel_button.png').convert_alpha()
-quit_img = pygame.image.load('button/mainmen_button.png.png').convert_alpha()
+        # make buttons
+        self.rel_button = Button(160, 250, self.rel_img, 0.1)
+        self.mainmen_button = Button(400, 250, self.mainmen_img, 0.1)
 
-# make buttons
-spec_rel_button = Button(160, 250, spec_rel_img, 0.1)
-quit_button = Button(400, 250, quit_img, 0.1)
+    def draw_text(self, text, font, text_col, x, y):
+        img = font.render(text, True, text_col)
+        self.screen.blit(img, (x, y))
+    def run(self):
+        run = True
+        pygame.display.set_caption("Explorer's Handbook")
 
-# game variables
-hb_open = False
+        while run:
+            self.screen.fill((52, 78, 91))
 
-# define fonts
-font = pygame.font.SysFont("comicsans", 40)
+            # special relativity
+            if self.rel_button.draw(self.screen):
+                hb_page = Relativity()
+                hb_page.run()
 
-# define colors
-text_col = (255, 255, 255)
+            if self.mainmen_button.draw(self.screen):
+                run = False
+            # event handler
 
-def draw_text(text, font, text_col, x, y):
-    img = font.render(text, True, text_col)
-    screen.blit(img, (x, y))
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        hb_open = True
+                if event.type == pygame.QUIT:
+                    run = False
+            #
 
-run = True
+            pygame.display.update()
 
-while run:
-    screen.fill((52, 78, 91))
+        pygame.quit()
 
-    # special relativity
-    if spec_rel_button.draw(screen):
-        hb_page = relativity()
-        hb_page.run()
-
-    if quit_button.draw(screen):
-        run = False
-    # event handler
-
-    for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                hb_open = True
-        if event.type == pygame.QUIT:
-            run = False
-    #
-
-    pygame.display.update()
-
-pygame.quit()
-
+game = HandbookMenu(1500, 844)
+game.run()
