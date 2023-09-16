@@ -79,12 +79,17 @@ def draw_main_page():
 
 def draw_launch_page(system):
     window.fill((52, 78, 91))
-
+    name = getattr(system, "name")
     pygame.draw.circle(window, getattr(system, "color"), (600, 1200), 800, 0)
     pygame.draw.circle(window, (191, 224, 222), (600, 1200), 800, 10)
     label = myfont.render("Where to next, explorer?", 1, (255, 255, 255))
+    label2 = myfont.render(f"Currently on {name}", 1, (255, 255, 255))
+
     label_rect = label.get_rect(center=(1100, 100))
+    label2_rect = label2.get_rect(center = (1100, 50))
     window.blit(label, label_rect)
+    window.blit(label2, label2_rect)
+
 
     earth_button.draw(window, 150, 600)
     hd_button.draw(window, 150, 500)
