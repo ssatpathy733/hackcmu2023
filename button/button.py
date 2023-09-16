@@ -9,7 +9,7 @@ class Button:
         # has some collision functions
         self.rect = self.image.get_rect()
         #self.rect.topleft = (x, y)
-        self.rect.center = (x, y)
+        #self.rect.center = (x, y)
         self.clicked = False
 
     def isClicked(self, pos):
@@ -43,7 +43,7 @@ class Button:
         return action 
     """
     def draw(self, screen, x, y):
-        self.rect = self.image.get_rect()
+        #self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
              # draw button on screen
         screen.blit(self.image, (x, y))
