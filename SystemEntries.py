@@ -29,6 +29,7 @@ def get_system_entry(system_name):
     if system_name == "Earth":
         return "earth"
     return system_name + "not found"
+
 def get_distance(from_system, to_system):
     return 4
 
