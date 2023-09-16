@@ -7,6 +7,7 @@ from SystemEntries import System
 from SystemEntries import SystemStats
 from SystemEntries import systems_dict
 from SystemEntries import systems_stats_dict
+from hbpages.relativity import Relativity
 
 
 
@@ -79,6 +80,12 @@ def draw_main_page():
 def draw_launch_page(system):
     window.fill((52, 78, 91))
 
+    pygame.draw.circle(window, getattr(system, "color"), (600, 1200), 800, 0)
+    pygame.draw.circle(window, (191, 224, 222), (600, 1200), 800, 10)
+    label = myfont.render("Where to next, explorer?", 1, (255, 255, 255))
+    label_rect = label.get_rect(center=(1100, 100))
+    window.blit(label, label_rect)
+
     earth_button.draw(window, 150, 600)
     hd_button.draw(window, 150, 500)
     kep_button.draw(window, 150, 400)
@@ -110,9 +117,11 @@ def draw_system_stats(system):
 
 def draw_relativity():
     window.fill((52, 78, 91))
-
-    hb_button.draw(window, 100, 100)
-
+    relativity = Relativity()
+    relativity.run()
+    print("returned!")
+    game_state = "handbook"
+    
 def draw_handbook_page():
     #window.fill((52, 78, 91))
     hb_bg_img = pygame.image.load("hbpages/assets/hb_bg.png").convert()
@@ -174,6 +183,10 @@ while exploring:
             if hb_button.isClicked(pygame.mouse.get_pos()):
                 print("clicked handbook")
                 game_state = "handbook"
+
+            if rel_button.isClicked(pygame.mouse.get_pos()):
+                print("clicked relativity!")
+                game_state = "relativity"
 
             if mainmen_button.isClicked(pygame.mouse.get_pos()):
                 print("clicked main page")
@@ -265,6 +278,10 @@ while exploring:
 
     if game_state == "handbook":
         draw_handbook_page()
+    
+    if game_state == "relativity":
+        draw_relativity()
+        print("back in main loop")
         
     if game_state == "win":
         draw_win_page()   

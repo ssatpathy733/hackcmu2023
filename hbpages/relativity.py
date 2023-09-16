@@ -41,10 +41,23 @@ class Relativity:
         self.menu = Menu(self)
 
     def run(self):
+        print("running relativity!")
         self.running = True
         # self.screen.fill("black")
         while self.running:
-            EventHandler.run()
+            #EventHandler.run()
+            for event in pygame.event.get():
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_q:
+                            pygame.quit()
+                    if event.type == pygame.QUIT: 
+                        self.running = False
+                    if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                        print("pressing something")
+                        if self.hb_button.isClicked(pygame.mouse.get_pos()):
+                            print("quitting train")
+                            self.running = False
+                            break
 
             # scrolling mechanism
             self.screen.blit(self.bg, (0,0))
@@ -70,13 +83,13 @@ class Relativity:
             def add_train_at_location(x, y):
                 self.screen.blit(train, (x, y))
             add_train_at_location(train_x, train_y)
+            self.hb_button.draw(self.screen, 100, 100)
 
             pygame.display.update()
 
-
-
+        return
         pygame.quit()
-        sys.exit()
+        
 
 
 if __name__ == "__main__":
