@@ -11,10 +11,11 @@ from SystemEntries import systems_stats_dict
 
 
 pygame.init()
-window_size = (1500, 844)
+window_size = (1500 , 844)
 window = pygame.display.set_mode(window_size)
 pygame.display.set_caption("name of game!")
 clock = pygame.time.Clock()
+click_timer = 0
 
 #button setup:
 cont_img = pygame.image.load('button/cont_button.png').convert_alpha()
@@ -120,12 +121,12 @@ def draw_handbook_page():
 
 def draw_win_page():
     window.fill((52, 78, 91))
-
     playag_button.draw(window, 700, 100)
 
 
 exploring = True
 while exploring:
+    print("game state: " + game_state)
     window.fill((52, 78, 91))
     clock.tick(60);
 
@@ -139,7 +140,7 @@ while exploring:
             if event.key == pygame.K_q:
                 exploring = False
                 pygame.quit()
-            
+            #leaving this here for debugging purposes...
             if event.key == pygame.K_l:
                 game_state = "launching"
             if event.key == pygame.K_a:
@@ -153,77 +154,81 @@ while exploring:
             if event.key == pygame.K_m:
                 game_state = "main-page"
             
-        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and click_timer == 0:
+            print("pressing something")
+            click_timer = 50 #to prevent two buttons on different screens from being pressed in one click
     #actual button press commands!
-            if hb_button.isClicked():
+            if hb_button.isClicked(pygame.mouse.get_pos()):
+                print("clicked handbook")
                 game_state = "handbook"
 
-            if mainmen_button.isClicked():
+            if mainmen_button.isClicked(pygame.mouse.get_pos()):
+                print("clicked main page")
                 game_state = "main-page"
 
-            if launch_button.isClicked():
+            if launch_button.isClicked(pygame.mouse.get_pos()):
                 curr_system = systems_dict["Earth"]
                 game_state = "launching"
 
-            if playag_button.isClicked():
+            if playag_button.isClicked(pygame.mouse.get_pos()):
                 game_state = "main-page"
                 for key in systems_dict:
                     setattr(systems_dict[key], "found", False)
 
-            if cont_button.isClicked():
+            if cont_button.isClicked(pygame.mouse.get_pos()):
                 if game_state == "choose-speed":
                     game_state = "landing"
                 elif game_state == "landing":
                     game_state = "launching"
 
-            if earth_button.isClicked() and game_state == "launching":
+            if earth_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
                 curr_system = systems_dict["Earth"]
 
-            if hd_button.isClicked() and game_state == "launching":
+            if hd_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
                 curr_system = systems_dict["HD 189733b"]
 
-            if kep_button.isClicked() and game_state == "launching":
+            if kep_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
                 curr_system = systems_dict["Kepler-62"]
 
-            if proxcent_button.isClicked() and game_state == "launching":
+            if proxcent_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
                 curr_system = systems_dict["Proxima Centauri"]
 
-            if trap_button.isClicked() and game_state == "launching":
+            if trap_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
                 curr_system = systems_dict["TRAPPIST-1"]
 
-            if wolf_button.isClicked() and game_state == "launching":
+            if wolf_button.isClicked(pygame.mouse.get_pos()) and game_state == "launching":
                 game_state = "choose-speed"
                 curr_system = systems_dict["Wolf 359"]
 
             
 
 
-            if earth_button.isClicked() and game_state == "handbook":
+            if earth_button.isClicked(pygame.mouse.get_pos()) and game_state == "handbook":
                 game_state = "system-stats"
                 display_system = systems_dict["Earth"]
 
-            if hd_button.isClicked() and game_state == "handbook":
+            if hd_button.isClicked(pygame.mouse.get_pos()) and game_state == "handbook":
                 game_state = "system-stats"
                 display_system = systems_dict["HD 189733b"]
 
-            if kep_button.isClicked() and game_state == "handbook":
+            if kep_button.isClicked(pygame.mouse.get_pos()) and game_state == "handbook":
                 game_state = "system-stats"
                 display_system = systems_dict["Kepler-62"]
 
-            if proxcent_button.isClicked() and game_state == "handbook":
+            if proxcent_button.isClicked(pygame.mouse.get_pos()) and game_state == "handbook":
                 game_state = "system-stats"
                 display_system = systems_dict["Proxima Centauri"]
 
-            if trap_button.isClicked() and game_state == "handbook":
+            if trap_button.isClicked(pygame.mouse.get_pos()) and game_state == "handbook":
                 game_state = "system-stats"
                 display_system = systems_dict["TRAPPIST-1"]
 
-            if wolf_button.isClicked() and game_state == "handbook":
+            if wolf_button.isClicked(pygame.mouse.get_pos()) and game_state == "handbook":
                 game_state = "system-stats"
                 display_system = systems_dict["Wolf 359"]
 
@@ -243,6 +248,7 @@ while exploring:
 
     if game_state == "landing":
         draw_landing_page(curr_system)
+        setattr(curr_system, "found", True)
 
     if game_state == "system-stats":
         draw_system_stats(display_system)
@@ -253,6 +259,8 @@ while exploring:
     if game_state == "win":
         draw_win_page()   
 
-    
     pygame.display.flip()
+    if click_timer > 0:
+        click_timer -= 1
+print(all_found())
 pygame.quit()
