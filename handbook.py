@@ -25,6 +25,7 @@ class HandbookMenu:
     def draw_text(self, text, font, text_col, x, y):
         img = font.render(text, True, text_col)
         self.screen.blit(img, (x, y))
+"""
     def run(self):
         run = True
         pygame.display.set_caption("Explorer's Handbook")
@@ -33,11 +34,11 @@ class HandbookMenu:
             self.screen.fill((52, 78, 91))
 
             # special relativity
-            if self.rel_button.draw(self.screen):
+            if self.rel_button.draw(self.screen, (self.screen.get_width())/2, 250):
                 hb_page = Relativity()
                 hb_page.run()
 
-            if self.mainmen_button.draw(self.screen):
+            if self.mainmen_button.draw(self.screen, (self.screen.get_width())/2, 500):
                 print("vroom vroom main menu")
                 # return to main menu
                 #run = False
@@ -53,7 +54,7 @@ class HandbookMenu:
 
             pygame.display.update()
 
-        pygame.quit()
 
-game = HandbookMenu(1500, 844)
-game.run()
+#game = HandbookMenu(1500, 844)
+#game.run()
+"""
