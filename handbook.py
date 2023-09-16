@@ -38,7 +38,9 @@ class HandbookMenu:
                 hb_page.run()
 
             if self.mainmen_button.draw(self.screen):
-                run = False
+                print("vroom vroom main menu")
+                # return to main menu
+                #run = False
             # event handler
 
             for event in pygame.event.get():

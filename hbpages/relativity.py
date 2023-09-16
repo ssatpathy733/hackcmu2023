@@ -3,6 +3,7 @@ import sys
 from hbpages.events import EventHandler
 from hbpages.ui import UI, Menu
 from button.button import Button
+from handbook import HandbookMenu
 width = 1500
 height = 844
 train_x = (width * 0.1)
@@ -51,7 +52,8 @@ class Relativity:
 
             add_train_at_location(train_x, train_y)
             if self.hb_button.draw(self.screen):
-                self.running = False
+                print("haha i press button")
+                # i want this to bring me back to handbook menu... sammy pls help ;;-;;
 
             pygame.display.update()
 
