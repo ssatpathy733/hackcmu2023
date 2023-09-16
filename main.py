@@ -93,13 +93,14 @@ def draw_choose_speed():
 
 def draw_landing_page(system):
     window.fill((52, 78, 91))
+    name = getattr(system, "name")
     # variables to create:
     # circle colour
     # outer circle ring colour    
     #pygame.draw.rect(window, (200, 200, 0), pygame.Rect(30, 30, 60, 60))
     pygame.draw.circle(window, getattr(curr_system, "color"), (200, 350), 400, 0)
     pygame.draw.circle(window, (191, 224, 222), (200, 350), 400, 10)
-    label = myfont.render(f"Welcome to {system}!", 1, (255, 255, 255))
+    label = myfont.render(f"Welcome to {name}!", 1, (255, 255, 255))
     label_rect = label.get_rect(center=(1300, 800))
     window.blit(label, label_rect)
 
