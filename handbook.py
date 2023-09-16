@@ -1,5 +1,6 @@
 import pygame
 from button.button import Button
+from hbpages.relativity import relativity
 
 pygame.init()
 
@@ -36,7 +37,8 @@ while run:
 
     # special relativity
     if spec_rel_button.draw(screen):
-        print("blergh")
+        hb_page = relativity()
+        hb_page.run()
 
     if quit_button.draw(screen):
         run = False

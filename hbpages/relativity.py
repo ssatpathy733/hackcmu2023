@@ -1,9 +1,9 @@
 import pygame
 import sys
-from events import EventHandler
-from ui import UI, Menu
+from hbpages.events import EventHandler
+from hbpages.ui import UI, Menu
 
-train = pygame.image.load("assets/train.png")
+train = pygame.image.load("hbpages/assets/train.png")
 
 width = 1500
 height = 844
@@ -17,7 +17,7 @@ flag = True
 
 
 # characters
-character = pygame.image.load("assets/train.png")
+character = pygame.image.load("hbpages/assets/train.png")
 
 class relativity:
     def __init__(self) -> None:
