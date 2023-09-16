@@ -33,6 +33,7 @@ class relativity:
 
         # draw scrolling background
         self.bg = pygame.image.load("assets/bg.png").convert()
+        self.bullet = pygame.image.load("assets/bullet.jpg").convert()
         self.bg_width = self.bg.get_width()
         self.tiles = math.ceil(width / self.bg_width) + 1
         self.scroll = 0
@@ -69,6 +70,8 @@ class relativity:
             # adding the train
             def add_train_at_location(x, y):
                 self.screen.blit(train, (x, y))
+                # self.screen.blit(self.bullet, (100,200))
+
             add_train_at_location(train_x, train_y)
 
             pygame.display.update()
