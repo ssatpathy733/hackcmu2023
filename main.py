@@ -41,10 +41,10 @@ hb_button = Button(300, 250, hb_img, 0.3);
 hd_button = Button(160, 250, hd_img, 0.1);
 kep_button = Button(160, 250, kep_img, 0.1);
 launch_button = Button(300, 500, launch_img, 0.3);
-mainmen_button = Button(160, 250, mainmen_img, 0.35);
+mainmen_button = Button(160, 250, mainmen_img, 0.25);
 playag_button = Button(160, 250, playag_img, 0.1);
 proxcent_button = Button(160, 250, proxcent_img, 0.1);
-rel_button = Button(160, 250, rel_img, 0.35);
+rel_button = Button(160, 250, rel_img, 0.25);
 trap_button = Button(160, 250, trap_img, 0.1);
 wolf_button = Button(160, 250, wolf_img, 0.1);
 
@@ -85,13 +85,15 @@ def draw_text(text, font, text_col, x, y):
 #fill these in with actual graphics and relevant code 
 def draw_main_page():
     window.fill((52, 78, 91))
+    mainmen_bg_img = pygame.image.load("hbpages/assets/mainmen_bg.png").convert()
+    window.blit(mainmen_bg_img, (0, 0))
     label = titlefont.render("HITCHHACKER'S GUIDE TO THE GALAXY", 1, (255, 255, 255))
     label_rect = label.get_rect(center=(750, 100))
     window.blit(label, label_rect)
 
 
-    launch_button.draw(window, 300, 500)
-    hb_button.draw(window, 300, 250)
+    launch_button.draw(window, (window.get_width() / 3) + 175, 500)
+    hb_button.draw(window, (window.get_width() / 3) + 175, 250)
 
 def draw_launch_page(system):
     window.fill((52, 78, 91))
@@ -166,12 +168,12 @@ def draw_handbook_page():
     #window.fill((52, 78, 91))
     hb_bg_img = pygame.image.load("hbpages/assets/hb_bg.png").convert()
     window.blit(hb_bg_img, (0, 0))
-    button_x = (window.get_width() / 3) + 175
+    button_x = (window.get_width() / 3)
     #button_y = (window.get_height() * 3) / 4
     #button_y might be helpful if we add more buttons to handbook
 
-    mainmen_button.draw(window, button_x, 200)
-    rel_button.draw(window, button_x, 544)
+    mainmen_button.draw(window, button_x - 80, 130)
+    rel_button.draw(window, button_x + 60, 410)
 
     '''
     earth_button.draw(window, 200, 200)
