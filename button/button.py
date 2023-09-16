@@ -8,8 +8,8 @@ class Button:
         self.image = pygame.transform.scale(image, (int(img_width * scale), int(img_height * scale)))
         # has some collision functions
         self.rect = self.image.get_rect()
-        #self.rect.topleft = (x, y)
-        self.rect.center = (x, y)
+        self.rect.topleft = (x, y)
+        #self.rect.center = (x, y)
         self.clicked = False
 
     def isClicked(self, pos):
