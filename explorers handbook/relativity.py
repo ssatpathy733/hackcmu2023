@@ -54,6 +54,7 @@ class relativity:
             # scroll background
             # self.scroll -= self.menu.change_scrolling_speed()
             self.menu.scroll_mech()
+            # self.menu.display_text()
             # rest scroll
             if abs(self.scroll) > self.bg_width:
                 self.scroll = 0
@@ -71,8 +72,6 @@ class relativity:
             add_train_at_location(train_x, train_y)
 
             pygame.display.update()
-
-
 
         pygame.quit()
         sys.exit()
