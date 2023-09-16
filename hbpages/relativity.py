@@ -2,9 +2,7 @@ import pygame
 import sys
 from hbpages.events import EventHandler
 from hbpages.ui import UI, Menu
-
-train = pygame.image.load("hbpages/assets/train.png")
-
+from button.button import Button
 width = 1500
 height = 844
 train_x = (width * 0.1)
@@ -19,6 +17,9 @@ flag = True
 # characters
 character = pygame.image.load("hbpages/assets/train.png")
 
+# return to handbook page
+
+
 class relativity:
     def __init__(self) -> None:
         pygame.init()
@@ -26,11 +27,15 @@ class relativity:
         UI.init(self)
         self.clock = pygame.time.Clock()
         EventHandler()
-
+        hb_img = pygame.image.load('button/hb_button.png').convert_alpha()
+        self.hb_button = Button(0, 0, hb_img, 0.1)
         self.menu = Menu(self)
+
+
     def run(self):
         self.running = True
         while self.running:
+            self.screen.fill(BLACK)
             EventHandler.run()
             for e in EventHandler.events:
                 if e.type == pygame.QUIT:
@@ -44,8 +49,10 @@ class relativity:
             def add_train_at_location(x, y):
                 self.screen.blit(character, (x, y))
 
-            self.screen.fill(BLACK)
             add_train_at_location(train_x, train_y)
+            if self.hb_button.draw(self.screen):
+                print("Bruuhhhhhhh")
+
             pygame.display.update()
 
         pygame.quit()

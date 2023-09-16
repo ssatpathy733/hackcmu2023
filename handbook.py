@@ -1,4 +1,6 @@
 import pygame
+# naming system:
+# from directory.fileName import className
 from button.button import Button
 from hbpages.relativity import relativity
 
@@ -10,8 +12,9 @@ screen = pygame.display.set_mode((scr_width, scr_height))
 pygame.display.set_caption("Explorer's Handbook")
 
 # import images for buttons
-spec_rel_img = pygame.image.load('button/spec_rel_button.png').convert_alpha()
-quit_img = pygame.image.load('button/main menu.png').convert_alpha()
+# MAKE SURE FILE PATH NAMES ARE CORRECT
+spec_rel_img = pygame.image.load('button/rel_button.png').convert_alpha()
+quit_img = pygame.image.load('button/mainmen_button.png.png').convert_alpha()
 
 # make buttons
 spec_rel_button = Button(160, 250, spec_rel_img, 0.1)
